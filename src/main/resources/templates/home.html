@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Runes</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+          integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+</head>
+<body>
+<div class="container">
+    <div class="card mt-3">
+        <form th:object="${texto}" class="card-body" th:action="${/runes/elderFurthark}" method="post">
+            <label for="textoParaTraduzir">Escreva o texto para traduzir</label>
+            <input th:field="*{textoParaTraduzir}" th:errorclass="is-invalid" class="form-control"
+                   placeholder="texto para traduzir"/>
+            <div class="invalid-feedback" th:errors="*{nomeProduto}">
+                Erros do texto
+            </div>
+            <button class="btn btn-primary mt-2" type="submit">Enviar</button>
+        </form>
+    </div>
+
+</div>
+
+</body>
+</html>

@@ -13,10 +13,16 @@ import javax.websocket.server.PathParam;
 @RequestMapping("/runes")
 public class RuneController {
 
-    private final RuneService runeService;
+    private final ElderFurthark elderFurthark;
+    private final Futhorc futhorc;
 
     @GetMapping("/elderFurthark")
     public ResponseEntity<String> getElderFurtharkPathParam(@PathParam(value = "texto") Texto texto) {
-        return runeService.getElderFurhark(texto);
+        return elderFurthark.getElderFurhark(texto);
+    }
+
+    @GetMapping("/futhorc")
+    public ResponseEntity<String> getFuthorcPathParam(@PathParam(value = "texto") Texto texto) {
+        return futhorc.getFuthorc(texto);
     }
 }

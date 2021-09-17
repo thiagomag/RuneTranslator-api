@@ -4,15 +4,18 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 @Service
-public class RuneService {
+public class Futhorc {
 
-
-    public ResponseEntity<String> getElderFurhark(Texto texto) {
+    public ResponseEntity<String> getFuthorc(Texto texto) {
         StringBuilder rune = new StringBuilder();
         for (int i = 0; i < texto.getTextoParaTraduzir().length(); i++) {
-            switch (texto.getTextoParaTraduzir().charAt(i)) {
+            switch (texto.getTextoParaTraduzir().toLowerCase().charAt(i)) {
                 case 'a':
-                    rune.append("\u16A8");
+                    if(texto.getTextoParaTraduzir().toLowerCase().charAt(i-1) == 'e') {
+                        break;
+                    } else {
+                        rune.append("\u16AA");
+                    }
                     break;
                 case 'b':
                     rune.append("\u16D2");
@@ -20,28 +23,37 @@ public class RuneService {
                 case 'c':
                 case 'k':
                 case 'q':
-                    rune.append("\u16B2");
+                    rune.append("\u16B3");
                     break;
                 case 'd':
                     rune.append("\u16DE");
                     break;
                 case 'e':
-                    rune.append("\u16D6");
+                    if(texto.getTextoParaTraduzir().toLowerCase().charAt(i+1) == 'a') {
+                        rune.append("\u16E0");
+                    } else {
+                        rune.append("\u16D6");
+                    }
                     break;
                 case 'f':
                     rune.append("\u16A0");
                     break;
                 case 'g':
+                case 'ȝ':
                     rune.append("\u16B7");
                     break;
                 case 'h':
-                    rune.append("\u16BA");
+                    rune.append("\u16BB");
                     break;
                 case 'i':
-                    rune.append("\u16C1");
+                    if(texto.getTextoParaTraduzir().toLowerCase().charAt(i+1) == 'o') {
+                        rune.append("\u16E1");
+                    } else {
+                        rune.append("\u16C1");
+                    }
                     break;
                 case 'j':
-                    rune.append("\u16C3");
+                    rune.append("\u16C4");
                     break;
                 case 'l':
                     rune.append("\u16DA");
@@ -53,7 +65,11 @@ public class RuneService {
                     rune.append("\u16BE");
                     break;
                 case 'o':
-                    rune.append("\u16DF");
+                    if(texto.getTextoParaTraduzir().toLowerCase().charAt(i-1) == 'i') {
+                        break;
+                    } else {
+                        rune.append("\u16A9");
+                    }
                     break;
                 case 'p':
                     rune.append("\u16C8");
@@ -62,7 +78,7 @@ public class RuneService {
                     rune.append("\u16B1");
                     break;
                 case 's':
-                    rune.append("\u16CA");
+                    rune.append("\u16CB");
                     break;
                 case 't':
                     rune.append("\u16CF");
@@ -72,7 +88,7 @@ public class RuneService {
                     rune.append("\u16A2");
                     break;
                 case 'x':
-                    rune.append("\u16B2").append("\u16CA");
+                    rune.append("\u16C9");
                     break;
                 case 'z':
                     rune.append("\u16C9");
@@ -81,11 +97,22 @@ public class RuneService {
                     rune.append("\u16A6");
                     break;
                 case 'æ':
+                    rune.append("\u16AB");
+                    break;
                 case 'ï':
                     rune.append("\u16C7");
                     break;
                 case 'ŋ':
-                    rune.append("\u16DC");
+                    rune.append("\u16DD");
+                    break;
+                case 'y':
+                    rune.append("\u16A3");
+                    break;
+                case 'w':
+                    rune.append("\u16B9");
+                    break;
+                case 'œ':
+                    rune.append("\u16DF");
                     break;
                 case ' ':
                     rune.append(" ");
